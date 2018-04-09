@@ -1,0 +1,46 @@
+{
+  "name": "vue-spatialnavigation",
+  "version": "1.0.0",
+  "description": "Spatial navigation support for VueJS",
+  "keywords": [
+    "vue",
+    "spatial navigation",
+    "navigation",
+    "tv",
+    "typescript",
+    "keyboard",
+    "vue-spatialnavigation"
+  ],
+  "main": "./lib/focus.directive.js",
+  "types": "./lib/focus.directive.d.ts",
+  "author": {
+    "name": "Bart van den Ende",
+    "email": "info@twcapps.com",
+    "url": "http://www.twcapps.com"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/twcapps/vue-ts-spatialnavigation",
+  "bugs": {
+    "url": "https://github.com/twcapps/vue-ts-spatialnavigation/issues"
+  },
+  "homepage": "https://github.com/twcapps/vue-ts-spatialnavigation",
+  "dependencies": {
+    "vue": "^2.5.16"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "pretest": "npm run build",
+    "prepublish": "npm run build",
+    "release": "release-it --github.release --npm.publish --non-interactive",
+    "release-minor": "release-it --github.release --npm.publish --non-interactive --increment minor",
+    "release-major": "release-it --github.release --npm.publish --non-interactive --increment major"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.1.6",
+    "merge2": "^1.0.3",
+    "release-it": "^7.3.0",
+    "tslint": "^5.1.0",
+    "typescript": "^2.8.1"
+  }
+}
