@@ -13,7 +13,9 @@ export declare class NavigationService {
     focusAbleElements: Array<FocusElement>;
     lastElementIdInFocus: string;
     blockAllSpatialNavigation: boolean;
-    constructor();
+    constructor(keys: {
+        [key: string]: number | Array<number>;
+    });
     setupKeyBoardEvents(): void;
     setupMouseEvents(): void;
     private findFocusable(target);

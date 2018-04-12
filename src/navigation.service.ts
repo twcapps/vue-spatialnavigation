@@ -10,15 +10,15 @@ export enum NavigationServiceDirection {
 }
 
 export class NavigationService {
-  keyCodes: {[key: number]: string};
+  keyCodes: {[key: number]: string} = [];
   focusAbleElements: Array<FocusElement> = new Array<FocusElement>();
   lastElementIdInFocus = "";
   blockAllSpatialNavigation = false;
 
-  constructor() {
+  constructor(keys: { [key: string]: number | Array<number> }) {
     // bind keyCodes object from Vue config
     for (let keyName in NavigationServiceDirection) {
-      let keyCode = Vue.config.keyCodes[keyName];
+      let keyCode = keys[NavigationServiceDirection[keyName]];
       if (keyCode) {
         if (keyCode instanceof Array) {
           for (let k of keyCode) {
@@ -98,9 +98,11 @@ export class NavigationService {
   private spatialNavigationAction(action: NavigationServiceDirection) {
     let el = this.getFocusElementInFocus();
 
+    let keyValue = NavigationServiceDirection[action];
+
     // initiate focus action if we have active element
     if (el) {
-      switch (action) {
+      switch (keyValue) {
         case NavigationServiceDirection.Up:
           el.up();
           break;

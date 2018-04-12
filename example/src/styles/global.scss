@@ -1,0 +1,41 @@
+@import "variables";
+// @import 'defaults';
+
+html, body {
+  height: 100%;
+  margin:0px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.app {
+  min-height: 100%;
+}
+
+.router-view {
+  transition: all .5s ease;
+  min-height: 100vh;
+}
+
+.router-enter, .router-leave {
+  opacity: 0;
+  transform: translate3d(20px, 0, 0);
+}
+
+.router-view {
+    transition: all .5s ease;
+    min-height: 100vh;
+  }
+
+.router-enter, .router-leave {
+  opacity: 0;
+  transform: translate3d(20px, 0, 0);
+}
+
+
+
+// --------------

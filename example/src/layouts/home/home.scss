@@ -1,0 +1,28 @@
+.button {
+  width: 100px;
+  height: 50px;
+  margin: 5px;
+  background-color: green;
+}
+
+.left-buttons {
+  width: 50%;
+  float: left;
+}
+
+.right-buttons {
+  width: 50%;
+  float: right;
+}
+
+.right {
+  float: right;
+}
+
+.focus {
+  background-color: yellow;
+}
+
+.current {
+  font-size: 30px;
+}

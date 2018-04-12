@@ -31,6 +31,8 @@
     "build": "gulp build",
     "pretest": "npm run build",
     "prepublish": "npm run build",
+    "e2e": "node test/e2e/runner.js",
+    "unit": "jest --config test/unit/jest.conf.js --coverage",
     "release": "release-it --github.release --npm.publish --non-interactive",
     "release-minor": "release-it --github.release --npm.publish --non-interactive --increment minor",
     "release-major": "release-it --github.release --npm.publish --non-interactive --increment major"
@@ -41,6 +43,23 @@
     "merge2": "^1.0.3",
     "release-it": "^7.3.0",
     "tslint": "^5.1.0",
-    "typescript": "^2.8.1"
+    "typescript": "^2.8.1",
+    "webpack": "^3.6.0",
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-merge": "^4.1.0",
+    "babel-register": "^6.22.0",
+    "chromedriver": "^2.27.2",
+    "cross-spawn": "^5.0.1",
+    "nightwatch": "^0.9.12",
+    "selenium-server": "^3.0.1",
+    "babel-jest": "^21.0.2",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "jest": "^22.0.4",
+    "jest-serializer-vue": "^0.3.0",
+    "typescript-babel-jest": "^1.0.5",
+    "vue-jest": "^1.0.2",
+    "@types/jest": "^22.0.1"
   }
 }
