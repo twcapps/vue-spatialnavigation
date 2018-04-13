@@ -19,11 +19,11 @@
     "url": "http://www.twcapps.com"
   },
   "license": "MIT",
-  "repository": "https://github.com/twcapps/vue-ts-spatialnavigation",
+  "repository": "https://github.com/twcapps/vue-spatialnavigation",
   "bugs": {
-    "url": "https://github.com/twcapps/vue-ts-spatialnavigation/issues"
+    "url": "https://github.com/twcapps/vue-spatialnavigation/issues"
   },
-  "homepage": "https://github.com/twcapps/vue-ts-spatialnavigation",
+  "homepage": "https://github.com/twcapps/vue-spatialnavigation",
   "dependencies": {
     "vue": "^2.5.16"
   },
