@@ -2,6 +2,17 @@
 
 Vue directive (Vue.js 2.x) for spatial navigation (keyboard navigation)
 
+[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Dependencies][deps-img]][deps]
+
+[sponsor-img]: https://img.shields.io/badge/Sponsored%20by-TWCAPPS-692446.svg
+[sponsor]: https://www.twcapps.com
+[VueJS]: https://github.com/vuejs/vue
+[deps]: https://david-dm.org/twcapps/vue-spatialnavigation
+[deps-img]: https://david-dm.org/twcapps/vue-spatialnavigation.svg
+[npm]: https://www.npmjs.com/package/vue-spatialnavigation
+[npm-downloads-img]: https://img.shields.io/npm/dm/vue-spatialnavigation.svg
+[npm-version-img]: https://img.shields.io/npm/v/vue-spatialnavigation.svg
+
 
 ## Installation
 
