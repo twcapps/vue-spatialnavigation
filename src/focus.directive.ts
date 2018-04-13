@@ -264,9 +264,19 @@ export class FocusElement {
 
 // Vue plugin
 export default {
-  install: function(Vue: any, options: any) {
+  install: function(Vue: any, options: { keyCodes: {[key: string]: number | Array<number> } | undefined } ) {
+    if (!options) options = <any>{};
     // initialise navigation service
-    navigationService = new NavigationService();
+    if (!options.keyCodes) {
+      options.keyCodes = {
+        "up": 38,
+        "down": 40,
+        "left": 37,
+        "right": 39,
+        "enter": 13
+      };
+    }
+    navigationService = new NavigationService(options.keyCodes);
 
     Vue.directive("focus", {
       // directive lifecycle
