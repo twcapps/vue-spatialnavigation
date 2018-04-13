@@ -31,7 +31,9 @@ export declare class FocusElement {
 }
 declare const _default: {
     install: (Vue: any, options: {
-        [key: string]: number | number[];
-    } | undefined) => void;
+        keyCodes: {
+            [key: string]: number | number[];
+        } | undefined;
+    }) => void;
 };
 export default _default;

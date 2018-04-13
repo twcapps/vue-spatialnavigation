@@ -27,15 +27,15 @@ Vue.use(VueSpatialNavigation)
 ```
 
 ```html
-<div id="button1" v-focus></div>
-<div id="button2" v-focus></div>
+<Component id="button1" v-focus></Component>
+<Component id="button2" v-focus></Component>
 ```
 
 ### CSS3 Element binding
 Use data properties with a domId string reference to determine the focus action during navigation (this behaves similar to the CSS3 draft)
 ```html
-<div id="button1" v-focus data-down="button2"></div>
-<div id="button2" v-focus data-up="button1"></div>
+<Component id="button1" v-focus data-down="button2"></Component>
+<Component id="button2" v-focus data-up="button1"></Component>
 ```
 
 ### JS Component binding
@@ -64,15 +64,15 @@ let app = new Vue({
 ### Automatic focus handling
 Use the special constant value 'AUTOFOCUS' to let the directive try to find the next focusable sibbling automatically. This only works if the next/prev focusable element is a sibling within the parent container!
 ```html
-<div id="button1" v-focus data-down="AUTOFOCUS"></div>
-<div id="button2" v-focus data-up="AUTOFOCUS"></div>
+<Component id="button1" v-focus data-down="AUTOFOCUS"></Component>
+<Component id="button2" v-focus data-up="AUTOFOCUS"></Component>
 ```
 
 ### Determine the first or default focus element
 In case the page is just rendered and or focus is reset the directive should know which element to restore focus to. The directive will keep a reference to the last focussed element, but if that is not available it will restore focus to the 'default' focus element on the page.
 ```html
-<div id="button1" v-focus data-default data-down="button2"></div>
-<div id="button2" v-focus data-up="button1"></div>
+<Component id="button1" v-focus data-default data-down="button2"></Component>
+<Component id="button2" v-focus data-up="button1"></Component>
 ```
 
 ### Enter action
@@ -102,7 +102,17 @@ let app = new Vue({
 ```
 
 ## Configuration
-This directive is binding to the [Vue.config.keyCodes](https://vuejs.org/v2/api/#keyCodes) object, in case different keycodes apply please update vue keyCodes configuration (before this directive is initialised).
+The application uses a default keybinding for the d-pad and enter keys, during the directive initialisation this can optionally be overriden with the options object:
+
+```javascript
+import Vue from "vue";
+import VueSpatialNavigation from "vue-spatialnavigation";
+Vue.use(VueSpatialNavigation, {
+  keyCodes: { [key: string]: number }
+})
+```
+
+
 
 ## Styling
 The directive will automatically assigned and remove the class "focus" on the html element to distingish an element in focus vs an element not in focus. The css "focus" class handling is fully handled by the directive and should not be changed/set manually.
@@ -111,8 +121,8 @@ The directive will automatically assigned and remove the class "focus" on the ht
 <style>
 .focus { background-color: yellow;}
 </style>
-<div id="button1" v-focus data-default data-down="AUTOFOCUS"></div>
-<div id="button2" v-focus data-up="AUTOFOCUS"></div>
+<Component id="button1" v-focus data-default data-down="AUTOFOCUS"></Component>
+<Component id="button2" v-focus data-up="AUTOFOCUS"></Component>
 ```
 
 ## NavigationService
