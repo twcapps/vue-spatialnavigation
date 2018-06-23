@@ -11,6 +11,11 @@ interface VNodeFocusListener {
   click: boolean;
 }
 
+interface SpatialNavigationOptions {
+  keyCodes?: {[key: string]: number | Array<number> } | undefined;
+  navigationService?: new (keys: { [key: string]: number | Array<number> }) => NavigationService;
+}
+
 // export navigation service
 export let navigationService: NavigationService;
 
@@ -264,7 +269,7 @@ export class FocusElement {
 
 // Vue plugin
 export default {
-  install: function(Vue: any, options: { keyCodes: {[key: string]: number | Array<number> } | undefined } ) {
+  install: function(Vue: any, options: SpatialNavigationOptions ) {
     if (!options) options = <any>{};
     // initialise navigation service
     if (!options.keyCodes) {
@@ -276,7 +281,7 @@ export default {
         "enter": 13
       };
     }
-    navigationService = new NavigationService(options.keyCodes);
+    navigationService = (options.navigationService) ? new options.navigationService(options.keyCodes) : new NavigationService(options.keyCodes);
 
     Vue.directive("focus", {
       // directive lifecycle

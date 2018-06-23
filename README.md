@@ -31,7 +31,7 @@ Inspiration for this plugin is taken from the [CSS3 draft keyboard navigation](h
 ## Typical usage
 
 To make an element 'focusable' just add the focus directive
-```javascript
+```typescript
 import Vue from "vue";
 import VueSpatialNavigation from "vue-spatialnavigation";
 Vue.use(VueSpatialNavigation)
@@ -55,7 +55,7 @@ Use vue bind directive with a component function reference to determine the focu
 <Component id="button1" v-focus @down="componentFunctionDown"></Component>
 <Component id="button2" v-focus @up="componentFunctionUp" ></Component>
 ```
-```javascript
+```typescript
 import { navigationService } from "vue-spatialnavigation";
 import Vue from "vue";
 let app = new Vue({
@@ -92,7 +92,7 @@ When a user actions an 'enter' keypress it will automatically be converted into 
 <Component id="button1" v-focus @down="componentFunctionDown"></Component>
 <Component id="button2" v-focus @up="componentFunctionUp" @click="button2clicked"></Component>
 ```
-```javascript
+```typescript
 import { navigationService } from "vue-spatialnavigation";
 import Vue from "vue";
 let app = new Vue({
@@ -115,14 +115,34 @@ let app = new Vue({
 ## Configuration
 The application uses a default keybinding for the d-pad and enter keys, during the directive initialisation this can optionally be overriden with the options object:
 
-```javascript
+```typescript
 import Vue from "vue";
 import VueSpatialNavigation from "vue-spatialnavigation";
 Vue.use(VueSpatialNavigation, {
-  keyCodes: { [key: string]: number }
+  keyCodes: {
+    "up": 38,
+    "down": 40,
+    "left": 37,
+    "right": 39,
+    "enter": 13
+  }
 })
 ```
 
+It is also possible to override the NavigationService class to create a fully custom key binding.
+
+```typescript
+import Vue from "vue";
+import VueSpatialNavigation from "vue-spatialnavigation";
+import { NavigationService } from "vue-spatialnavigation/lib/navigation.service";
+// custum navigation service 
+class CustomNavigationService extends NavigationService {
+
+}
+Vue.use(VueSpatialNavigation, {
+  navigationService: CustomNavigationService
+})
+```
 
 
 ## Styling
