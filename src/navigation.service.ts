@@ -71,6 +71,11 @@ export class NavigationService {
     });
 
 
+    // enable click event
+    document.addEventListener("click", (e: MouseEvent) => {
+      if (this.blockAllSpatialNavigation) return false;
+      let el = this.findFocusable(<HTMLElement> e.target);
+      if (el) el.enter();
     });
 
   }
