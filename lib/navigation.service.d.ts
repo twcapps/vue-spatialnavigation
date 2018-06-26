@@ -18,8 +18,8 @@ export declare class NavigationService {
     });
     setupKeyBoardEvents(): void;
     setupMouseEvents(): void;
-    private findFocusable(target);
-    private spatialNavigationAction(action);
+    findFocusable(target: Element): FocusElement | undefined;
+    spatialNavigationAction(action: NavigationServiceDirection): void;
     registerFocusElement(focusElement: FocusElement): void;
     deRegisterFocusElement(focusElement: FocusElement): void;
     getFocusElementInFocus(): FocusElement | undefined;
