@@ -50,8 +50,6 @@ export class NavigationService {
 
       // action spatial navigation
       if (keyName in NavigationServiceDirection) this.spatialNavigationAction(<NavigationServiceDirection>keyName);
-
-      return true;
     }));
   }
 
@@ -62,8 +60,6 @@ export class NavigationService {
 
       let el = this.findFocusable(<HTMLElement>e.target);
       if (el) el.focus();
-
-      return false;
     });
 
     // enable mouseout event
@@ -72,14 +68,20 @@ export class NavigationService {
 
       let el = this.findFocusable(<HTMLElement>e.target);
       if (el) el.blur();
+    });
 
-      return false;
+
+    // enable click event
+    document.addEventListener("click", (e: MouseEvent) => {
+      if (this.blockAllSpatialNavigation) return false;
+      let el = this.findFocusable(<HTMLElement> e.target);
+      if (el) el.enter();
     });
 
   }
 
   // try to find focusable element on mouse hover or click
-  private findFocusable(target: Element): FocusElement | undefined {
+  findFocusable(target: Element): FocusElement | undefined {
     // inside loop search for focusable element
     // we need this if the focusable element has children inside
     // so e.target can point to child or grandchild of focusable element
@@ -95,7 +97,7 @@ export class NavigationService {
   }
 
   // action a new spatial navigation action
-  private spatialNavigationAction(action: NavigationServiceDirection) {
+  spatialNavigationAction(action: NavigationServiceDirection) {
     let el = this.getFocusElementInFocus();
 
     let keyValue = NavigationServiceDirection[action];
