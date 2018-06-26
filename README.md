@@ -50,7 +50,8 @@ Use data properties with a domId string reference to determine the focus action 
 ```
 
 ### JS Component binding
-Use vue bind directive with a component function reference to determine the focus action during navigation
+Use vue bind directive with a component function reference to determine the focus action during navigation. 
+Note that the available Vue events (@down, @up, @right, @left, @click) only work on Vue components not on native html elements!
 ```html
 <Component id="button1" v-focus @down="componentFunctionDown"></Component>
 <Component id="button2" v-focus @up="componentFunctionUp" ></Component>
@@ -88,6 +89,7 @@ In case the page is just rendered and or focus is reset the directive should kno
 
 ### Enter action
 When a user actions an 'enter' keypress it will automatically be converted into a click action on the element that has active focus. So you can use the regular vue @click bindings.
+Note that by default vue only supports @click on html elements and you have to normally use @click.native on a component, this directive will automatically capture the native event though and convert it into a vue event so you can use @click for both native keyboard and mouse clicks.
 ```html
 <Component id="button1" v-focus @down="componentFunctionDown"></Component>
 <Component id="button2" v-focus @up="componentFunctionUp" @click="button2clicked"></Component>
