@@ -1,5 +1,13 @@
 import { NavigationService } from "./navigation.service";
 import { VNode } from "vue";
+export interface SpatialNavigationOptions {
+    keyCodes?: {
+        [key: string]: number | Array<number>;
+    } | undefined;
+    navigationService?: new (keys: {
+        [key: string]: number | Array<number>;
+    }) => NavigationService;
+}
 export declare let navigationService: NavigationService;
 export declare class FocusElement {
     static AutoFocus: string;
@@ -30,10 +38,6 @@ export declare class FocusElement {
     private doFocusElement(id);
 }
 declare const _default: {
-    install: (Vue: any, options: {
-        keyCodes: {
-            [key: string]: number | number[];
-        } | undefined;
-    }) => void;
+    install: (Vue: any, options: SpatialNavigationOptions) => void;
 };
 export default _default;

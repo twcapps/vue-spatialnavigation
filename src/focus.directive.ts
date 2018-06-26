@@ -11,7 +11,7 @@ interface VNodeFocusListener {
   click: boolean;
 }
 
-interface SpatialNavigationOptions {
+export interface SpatialNavigationOptions {
   keyCodes?: {[key: string]: number | Array<number> } | undefined;
   navigationService?: new (keys: { [key: string]: number | Array<number> }) => NavigationService;
 }
