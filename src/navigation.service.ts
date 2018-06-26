@@ -50,8 +50,6 @@ export class NavigationService {
 
       // action spatial navigation
       if (keyName in NavigationServiceDirection) this.spatialNavigationAction(<NavigationServiceDirection>keyName);
-
-      return true;
     }));
   }
 
@@ -62,8 +60,6 @@ export class NavigationService {
 
       let el = this.findFocusable(<HTMLElement>e.target);
       if (el) el.focus();
-
-      return false;
     });
 
     // enable mouseout event
@@ -72,8 +68,9 @@ export class NavigationService {
 
       let el = this.findFocusable(<HTMLElement>e.target);
       if (el) el.blur();
+    });
 
-      return false;
+
     });
 
   }
