@@ -35,7 +35,8 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "release": "release-it --github.release --npm.publish --non-interactive",
     "release-minor": "release-it --github.release --npm.publish --non-interactive --increment minor",
-    "release-major": "release-it --github.release --npm.publish --non-interactive --increment major"
+    "release-major": "release-it --github.release --npm.publish --non-interactive --increment major",
+    "release-patch": "release-it --github.release --npm.publish --non-interactive --increment patch"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
