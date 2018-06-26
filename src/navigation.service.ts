@@ -79,7 +79,7 @@ export class NavigationService {
   }
 
   // try to find focusable element on mouse hover or click
-  private findFocusable(target: Element): FocusElement | undefined {
+  findFocusable(target: Element): FocusElement | undefined {
     // inside loop search for focusable element
     // we need this if the focusable element has children inside
     // so e.target can point to child or grandchild of focusable element
@@ -95,7 +95,7 @@ export class NavigationService {
   }
 
   // action a new spatial navigation action
-  private spatialNavigationAction(action: NavigationServiceDirection) {
+  spatialNavigationAction(action: NavigationServiceDirection) {
     let el = this.getFocusElementInFocus();
 
     let keyValue = NavigationServiceDirection[action];
