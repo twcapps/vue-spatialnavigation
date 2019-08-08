@@ -234,6 +234,8 @@ export class FocusElement {
       try {
         this.$el.__vue__.$vnode.componentOptions.listeners.click();
       } catch (e) {}
+    } else {
+      this.$el.click();
     }
   }
 
