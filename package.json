@@ -39,7 +39,7 @@
     "release-patch": "release-it --github.release --npm.publish --non-interactive --increment patch"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-typescript": "^3.1.6",
     "merge2": "^1.0.3",
     "release-it": "^7.3.0",
